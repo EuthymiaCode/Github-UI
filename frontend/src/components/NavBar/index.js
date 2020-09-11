@@ -14,10 +14,12 @@ import {
   Nav,
   MenuIcon,
   ProfileLink,
-  SignOut
+  SignOut,
+  Smiley,
+  DarkMode
 } from './styles'
 
-export function NavBar() {
+export function NavBar({ mode, setMode }) {
   const [iconOpen, setIconOpen] = useState({
     plus: false,
     profile: false
@@ -69,8 +71,14 @@ export function NavBar() {
           <PlusIcon id='plus' onClick={e => handleIconOpen(e)} />
           <ArrowDown id='plus' onClick={e => handleIconOpen(e)} />
         </PlusIconWrapper>
-        <IconPopover open={iconOpen.plus} right='80px'>
-          asd
+        <IconPopover open={iconOpen.plus} right='78px'>
+          <ul>
+            <li>New repository</li>
+            <li>Import Repository</li>
+            <li>New Gist</li>
+            <li>New Organization</li>
+            <li>New Project</li>
+          </ul>
         </IconPopover>
 
         <ProfileIcon id='profile' onClick={e => handleIconOpen(e)}>
@@ -80,8 +88,36 @@ export function NavBar() {
             id='profile'></img>
           <ArrowDown id='profile' />
         </ProfileIcon>
-        <IconPopover open={iconOpen.profile} right='18px'>
-          asdasdasdasdasd
+        <IconPopover open={iconOpen.profile} right='21px'>
+          <div>
+            Signed-in as <span> Usuário</span>
+          </div>
+          <div>
+            <button>
+              <Smiley /> <span>Set Status</span>
+            </button>
+          </div>
+          <div>
+            <button onClick={() => setMode(!mode)}>
+              <DarkMode /> <span>DarkMode</span>
+            </button>
+          </div>
+
+          <ul>
+            <li>New repository</li>
+            <li>Import Repository</li>
+            <li>New Gist</li>
+            <li>New Organization</li>
+            <li>New Project</li>
+          </ul>
+
+          <ul style={{ borderTop: '0.5px solid #bbb' }}>
+            <li>New repository</li>
+            <li>Import Repository</li>
+            <li>New Gist</li>
+            <li>New Organization</li>
+            <li>New Project</li>
+          </ul>
         </IconPopover>
       </RightIcons>
     </Container>

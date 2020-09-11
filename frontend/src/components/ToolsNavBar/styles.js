@@ -1,16 +1,14 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { GoBook, GoRepo, GoProject, GoPackage } from 'react-icons/go'
 
 export const NavBarContainer = styled.div`
-  font-size: 20px;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
-
+  align-items: center;
   height: 75px;
 
-  border: 1px solid var(--line-color);
+  border-bottom: 1px solid var(--line-color);
 `
 
 export const SubContainer = styled.div`
@@ -20,38 +18,43 @@ export const SubContainer = styled.div`
 
   padding: 20px 16px 0px 16px;
 
-  font-size: 14px;
-  font-weight: 300;
+  height: 76px;
+  font-size: 18px;
+  font-weight: 600;
   color: var(--font-primary);
+  border-bottom: ${({ selected }) =>
+    selected
+      ? '2px solid var(--dashboard-perfil)'
+      : '1px solid var(--line-color)'};
 
+  button {
+    font-size: 14px;
+    height: 100%;
+    cursor: pointer;
+    color: var(--font-primary);
+  }
   svg {
     margin-right: 5px;
   }
 
   p {
     margin: 0 5px;
+    color: var(--font-primary);
   }
 `
 
-export const RepositoriesIcon = styled(GoRepo)``
-
-export const ProjectsIcon = styled(GoProject)``
-
-export const PackagesIcon = styled(GoPackage)``
-
-export const OverviewIcon = styled(GoBook)``
-
-export const BotSide = styled.div`
-  margin-top: 20px;
-
-  display: flex;
-  align-items: center;
+const iconCSS = css`
+  font-size: 18px;
 `
-
-export const Avatar = styled.div`
-  width: 39px;
-  height: 39px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--font-primary);
+export const RepositoriesIcon = styled(GoRepo)`
+  ${iconCSS}
+`
+export const ProjectsIcon = styled(GoProject)`
+  ${iconCSS}
+`
+export const PackagesIcon = styled(GoPackage)`
+  ${iconCSS}
+`
+export const OverviewIcon = styled(GoBook)`
+  ${iconCSS}
 `

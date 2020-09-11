@@ -9,7 +9,7 @@ export default createGlobalStyle`
 
     html, body, #root {
         height: 100%;
-       
+       background-color: var(--bg)
     }
 
     html {
@@ -18,9 +18,11 @@ export default createGlobalStyle`
     }
 
     *, button, input {
+        background: inherit;
+        color: inherit;
         border: 0;
         outline: 0;
-        font-family: 'Roboto', sans-serif;
+        font-family: Roboto, sans-serif;
     }
 
     :root {
@@ -29,9 +31,16 @@ export default createGlobalStyle`
         --repositorios-primary: #f1e05a; 
         --repositorios-secondary: #2b7489;
         --commits: #216e39;
-        --footer: #24292e;  
-        --font-color: #FFF;
-        --font-primary: #1B1F23;
+        
+        --font-color: ${({ theme }) => theme.font};
+        --font-primary: ${({ theme }) => theme.fontPrimary};
+        --bg :  ${({ theme }) => theme.bg};
+
         --line-color: #e1e4e8;
+        --profile-button-color: #FAFBFC;
+        --btn-background: #fafbfc;
     }
 `
+// --font-color:${({ theme }) => theme.colors.font};
+//         --bgColor : ${({theme}) => theme.colors.bg};
+//         --font-primary: #1B1F23;

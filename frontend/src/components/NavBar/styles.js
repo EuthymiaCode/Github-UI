@@ -1,7 +1,23 @@
+import React from 'react'
+
 import styled from 'styled-components'
 import { GoMarkGithub, GoPlus, GoBell, GoSignOut } from 'react-icons/go'
 import { RiArrowDownSFill } from 'react-icons/ri'
 import { AiOutlineMenu } from 'react-icons/ai'
+import { MdBrightnessMedium } from 'react-icons/md'
+const OcticonSmiley = () => (
+  <svg
+    class='octicon octicon-smiley'
+    viewBox='0 0 16 16'
+    version='1.1'
+    width='16'
+    height='16'
+    aria-hidden='true'>
+    <path
+      fill-rule='evenodd'
+      d='M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM5 8a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zM5.32 9.636a.75.75 0 011.038.175l.007.009c.103.118.22.222.35.31.264.178.683.37 1.285.37.602 0 1.02-.192 1.285-.371.13-.088.247-.192.35-.31l.007-.008a.75.75 0 111.222.87l-.614-.431c.614.43.614.431.613.431v.001l-.001.002-.002.003-.005.007-.014.019a1.984 1.984 0 01-.184.213c-.16.166-.338.316-.53.445-.63.418-1.37.638-2.127.629-.946 0-1.652-.308-2.126-.63a3.32 3.32 0 01-.715-.657l-.014-.02-.005-.006-.002-.003v-.002h-.001l.613-.432-.614.43a.75.75 0 01.183-1.044h.001z'></path>
+  </svg>
+)
 
 export const Container = styled.div`
   background-color: var(--navBar);
@@ -44,8 +60,6 @@ export const LeftSubContainer = styled.div`
   padding-left: 20px;
 
   .NavBarButton {
-    color: var(--font-color);
-    background-color: var(--navBar);
     cursor: pointer;
 
     margin: 0px 10px;
@@ -120,14 +134,16 @@ export const PlusIcon = styled(GoPlus)`
   height: 14px;
   opacity: 0.8;
   cursor: pointer;
-
-  &:hover {
-    opacity: 0.6;
-  }
 `
 
 export const PlusIconWrapper = styled.span`
   width: 33px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
   @media (max-width: 768px) {
     display: none;
   }
@@ -152,7 +168,9 @@ export const ProfileIcon = styled.div`
   display: flex;
 
   align-items: center;
-
+  &:hover {
+    opacity: 0.6;
+  }
   img {
     border-radius: 10em 10em;
     width: 18px;
@@ -165,9 +183,6 @@ export const ArrowDown = styled(RiArrowDownSFill)`
   width: 15px;
   cursor: pointer;
 
-  &:hover {
-    opacity: 0.6;
-  }
   @media (max-width: 768px) {
     display: none;
   }
@@ -206,7 +221,7 @@ export const SearchBar = styled.input`
     padding: 7px 8px;
     height: 38px;
     &:focus {
-      flex-basis: initial;
+      flex-basis: 25%;
     }
   }
 `
@@ -242,14 +257,67 @@ export const ProfileLink = styled.button`
 export const IconPopover = styled.div`
   position: absolute;
   top: 45px;
-  border-radius: 0.6em;
-  border: 0.5px solid #bbb;
+  border-radius: 0.5em;
+  border: 1px solid #bbb;
   right: ${({ right }) => right};
-  background-color: #fff;
-  color: #000;
-  padding: 6px 6px;
-  width: 120px;
+  background-color: var(--bg);
+  color: var(--font-primary);
+  width: 160px;
+  font-size: 14px;
   display: ${({ open }) => (open ? 'block' : 'none')};
+  padding: 4px 0;
+  ul {
+    padding: 4px 0px;
+    list-style: none;
+  }
+
+  li {
+    padding: 4px 8px 4px 16px;
+    cursor: pointer;
+  }
+
+  li:hover {
+    background-color: #0366d6;
+    color: white;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 6px;
+    border-bottom: 1px solid #bbb;
+  }
+
+  span:first-child {
+    font-weight: 700;
+    margin-left: 2px;
+  }
+  button {
+    border: 1px solid #bbb;
+    padding: 6px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 0.5em;
+    width: 80%;
+
+    cursor: pointer;
+    span {
+      margin-left: 5px;
+    }
+
+    &:hover {
+      color: #0366d6;
+      fill: #0366d6;
+    }
+  }
+`
+export const DarkMode = styled(MdBrightnessMedium)``
+
+export const Smiley = styled(OcticonSmiley)`
+  color: var(--font-primary);
+  fill: var(--font-primary);
 `
 
 export const SignOut = styled(GoSignOut)`
