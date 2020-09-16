@@ -8,6 +8,7 @@ import {
   FollowersIcon,
   StarIcon,
   UserInformation,
+  Organizations,
   LocationIcon,
   EmailIcon
 } from './styles'
@@ -37,13 +38,14 @@ export function Profile() {
         <UserData>
           <span>
             <p>
-              <FollowersIcon />
-              followers ·
+              <FollowersIcon /> <strong>9</strong> followers ·
             </p>
           </span>
 
           <span>
-            <p>20 following · </p>
+            <p>
+              <strong>20</strong> following ·
+            </p>
           </span>
 
           <span>
@@ -66,7 +68,10 @@ export function Profile() {
             </p>
           </span>
         </UserInformation>
-        <strong> Organizations </strong>
+
+        <Organizations>
+          <strong> Organizations </strong>
+        </Organizations>
       </Container>
     </>
   )

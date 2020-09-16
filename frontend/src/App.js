@@ -3,6 +3,7 @@ import { NavBar } from './components/NavBar'
 import { ToolsNavBar } from './components/ToolsNavBar'
 import { Profile } from './components/Profile'
 import Repositories from './components/Repositories'
+import { UserData } from './components/UserData'
 import { TabContext } from './Context/TabContext'
 
 import GlobalStyles from './styles/GlobalStyles'
@@ -15,7 +16,7 @@ function App() {
   const { selectedTab } = useContext(TabContext)
   const tabs = {
     repositories: <Repositories />,
-    overview: <h1>Overview</h1>,
+    overview: <UserData />,
     projects: <h1>Projects</h1>,
     packages: <h1>Packages</h1>
   }
@@ -23,20 +24,21 @@ function App() {
   const dark = {
     font: '#fff',
     fontPrimary: '#fff',
-    bg: ' #24292e'
+    bg: ' #252525',
+    line: 'rgba(0,0,0,0)'
   }
 
   const light = {
     font: '#fff',
     fontPrimary: '#1B1F23',
-    bg: '#eee'
+    bg: '#fff',
+    line: '#e1e4e8'
   }
   const [darkMode, setDarkMode] = useState(false)
   return (
     <div className='App'>
       <ThemeProvider theme={darkMode ? dark : light}>
         <NavBar mode={darkMode} setMode={setDarkMode} />
-
         <ToolsNavBar />
         <Container>
           <Profile />

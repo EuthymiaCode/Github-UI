@@ -1,11 +1,18 @@
 import React from 'react'
+import getRepos from '../../Context/RepoContext'
+import { RepoCard, RepoSearchBar } from './RepoComponents'
+
+import { Container } from './styles'
 
 export default function Repositories() {
+  const repos = getRepos()
+
   return (
-    <>
-      <h1>Nome repositorio</h1>
-      <h3>Descrição repositorio</h3>
-      <h2>footer</h2>
-    </>
+    <Container>
+      <RepoSearchBar />
+      {repos.map((repo, index) => (
+        <RepoCard {...repo} key={index} />
+      ))}
+    </Container>
   )
 }

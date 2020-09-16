@@ -5,7 +5,7 @@ export const NavBarContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   height: 75px;
 
   border-bottom: 1px solid var(--line-color);
@@ -18,9 +18,8 @@ export const SubContainer = styled.div`
 
   padding: 20px 16px 0px 16px;
 
-  height: 76px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: ${({ selected }) => (selected ? '300' : 'bold')};
   color: var(--font-primary);
   border-bottom: ${({ selected }) =>
     selected
@@ -39,6 +38,8 @@ export const SubContainer = styled.div`
 
   p {
     margin: 0 5px;
+    font-size: 18px;
+    font-weight: ${({ selected }) => (selected ? 'bold' : '300')};
     color: var(--font-primary);
   }
 `
