@@ -3,8 +3,10 @@ import { NavBar } from './components/NavBar'
 import { ToolsNavBar } from './components/ToolsNavBar'
 import { Profile } from './components/Profile'
 import Repositories from './components/Repositories'
-import { UserData } from './components/UserData'
+import { RepositoriesData } from './components/RepositoriesData'
+import Projects from './components/Projects'
 import { TabContext } from './Context/TabContext'
+import { Footer } from './components/Footer'
 
 import GlobalStyles from './styles/GlobalStyles'
 import styled, { ThemeProvider } from 'styled-components'
@@ -16,8 +18,8 @@ function App() {
   const { selectedTab } = useContext(TabContext)
   const tabs = {
     repositories: <Repositories />,
-    overview: <UserData />,
-    projects: <h1>Projects</h1>,
+    overview: <RepositoriesData />,
+    projects: <Projects />,
     packages: <h1>Packages</h1>
   }
 
@@ -25,14 +27,16 @@ function App() {
     font: '#fff',
     fontPrimary: '#fff',
     bg: ' #252525',
-    line: 'rgba(0,0,0,0)'
+    line: 'rgba(0,0,0,0)',
+    icon: '#f5f5f5'
   }
 
   const light = {
     font: '#fff',
     fontPrimary: '#1B1F23',
     bg: '#fff',
-    line: '#e1e4e8'
+    line: '#e1e4e8',
+    icon: '#6a737d'
   }
   const [darkMode, setDarkMode] = useState(false)
   return (
@@ -47,6 +51,7 @@ function App() {
 
         <GlobalStyles />
       </ThemeProvider>
+      <Footer />
     </div>
   )
 }

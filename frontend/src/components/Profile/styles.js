@@ -59,7 +59,7 @@ export const Name = styled.div`
 export const Button = styled.button`
   color: var(--navBar);
   background-color: var(--btn-background);
-  border: 1px solid #1b1f2326;
+  border: 1px solid var(--border-color);
   font-size: 14px;
   font-weight: 500;
   margin: 0px 0px 16px;
@@ -100,6 +100,7 @@ const iconCSS = css`
   margin: 3px 0px 0px -22px;
   height: 16px;
   width: 16px;
+  fill: var(--icon);
 `
 
 export const UserInformation = styled.div`
@@ -117,11 +118,13 @@ export const Organizations = styled.div`
 export const FollowersIcon = styled(RiGroupLine)`
   height: 16px;
   width: 16px;
+  fill: var(--icon);
 `
 
 export const StarIcon = styled(RiStarLine)`
   width: 16px;
   height: 16px;
+  fill: var(--icon);
 `
 
 export const LocationIcon = styled(RiMapPin2Line)`

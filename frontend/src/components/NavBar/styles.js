@@ -180,7 +180,7 @@ export const ArrowDown = styled(RiArrowDownSFill)`
   height: 15px;
   width: 15px;
   cursor: pointer;
-
+  flex-shrink: 0;
   @media (max-width: 768px) {
     display: none;
   }
