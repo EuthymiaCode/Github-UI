@@ -3,15 +3,17 @@ import { GoMarkGithub } from 'react-icons/go'
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   font-size: 12px;
 
-  padding: 40px 16px 40px 16px;
-  margin: 40px 54px 40px 54px;
+  padding: 40px 16px 20px 16px;
+  margin: 40px 54px 20px 54px;
   border-top: 1px solid var(--border-color);
-
+  p {
+    color: var(--font-primary);
+  }
   div {
     padding: 0px 70px;
     cursor: pointer;
@@ -23,9 +25,9 @@ export const Container = styled.div`
 `
 
 export const Link = styled.a`
-  color: #0366d6;
+  color: var(--link-color);
   font-size: 12px;
-  padding: 0px 30px 0px 30px;
+
   cursor: pointer;
 
   &:hover {

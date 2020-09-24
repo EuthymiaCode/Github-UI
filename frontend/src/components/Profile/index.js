@@ -61,7 +61,7 @@ export function Profile() {
           <span>
             <p>
               <EmailIcon />
-              pipipi@popopo.com
+              <span> pipipi@popopo.com </span>
             </p>
           </span>
         </UserInformation>

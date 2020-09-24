@@ -10,7 +10,9 @@ import {
 
 export const Container = styled.div`
   width: 312px;
+  background-color: transparent;
   display: flex;
+  transform: translateY(-60px);
   flex-direction: column;
   color: var(--font-primary);
   margin: 20px 15px 0px 60px;
@@ -28,8 +30,7 @@ export const Container = styled.div`
 `
 
 export const Avatar = styled.div`
-  margin-bottom: 15px;
-
+  padding: 16px 0;
   > img {
     height: 260px;
     flex-shrink: 0;
@@ -38,7 +39,7 @@ export const Avatar = styled.div`
 `
 
 export const Name = styled.div`
-  padding: 16px 0px;
+  padding-bottom: 16px;
 
   > strong {
     font-size: 24px;
@@ -57,8 +58,9 @@ export const Name = styled.div`
 `
 
 export const Button = styled.button`
-  color: var(--navBar);
-  background-color: var(--btn-background);
+  cursor: pointer;
+  color: var(--font-primary);
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   font-size: 14px;
   font-weight: 500;
@@ -67,10 +69,9 @@ export const Button = styled.button`
   height: 32px;
   width: 280px;
   border-radius: 7px;
-  box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04),
-    inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
 
   &:hover {
+    filter: brightness(98%);
   }
 `
 
@@ -85,6 +86,11 @@ export const UserData = styled.div`
   span {
     font-size: 14px;
     margin: 0px 5px;
+    cursor: pointer;
+    &:hover {
+      color: var(--link-color);
+      fill: var(--link-color);
+    }
   }
 
   strong {
@@ -100,7 +106,6 @@ const iconCSS = css`
   margin: 3px 0px 0px -22px;
   height: 16px;
   width: 16px;
-  fill: var(--icon);
 `
 
 export const UserInformation = styled.div`
@@ -108,28 +113,41 @@ export const UserInformation = styled.div`
   p {
     font-size: 14px;
     padding: 4px 0px 10px 22px;
+
+    span {
+      font-size: 14px;
+      &:hover {
+        color: var(--link-color);
+        text-decoration: underline;
+      }
+    }
   }
 `
 export const Organizations = styled.div`
-  padding-top: 16px;
-  margin-top: 16px;
+  margin-bottom: 8px;
+  margin-top: 9px;
+
+  strong {
+    font-weight: 600;
+    font-size: 16px;
+  }
 `
 
 export const FollowersIcon = styled(RiGroupLine)`
   height: 16px;
   width: 16px;
-  fill: var(--icon);
 `
 
 export const StarIcon = styled(RiStarLine)`
   width: 16px;
   height: 16px;
-  fill: var(--icon);
 `
 
 export const LocationIcon = styled(RiMapPin2Line)`
   ${iconCSS}
+  fill: var(--icon);
 `
 export const EmailIcon = styled(RiMailLine)`
   ${iconCSS}
+  fill: var(--icon);
 `

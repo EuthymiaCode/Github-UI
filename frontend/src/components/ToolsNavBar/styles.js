@@ -7,8 +7,9 @@ export const NavBarContainer = styled.div`
   justify-content: center;
   align-items: stretch;
   height: 75px;
+  transform: translateX(-60px);
 
-  border-bottom: 1px solid var(--line-color);
+  border-bottom: 1px solid var(--border-color);
 `
 
 export const SubContainer = styled.div`
@@ -22,9 +23,18 @@ export const SubContainer = styled.div`
   font-weight: ${({ selected }) => (selected ? '300' : 'bold')};
   color: var(--font-primary);
   border-bottom: ${({ selected }) =>
-    selected
-      ? '2px solid var(--dashboard-perfil)'
-      : '1px solid var(--line-color)'};
+    selected ? '2px solid var(--dashboard-perfil)' : ''};
+
+  transition: var(--border-color);
+  transition-timing-function: ease-out;
+  transition-duration: 0.12s;
+
+  &:hover {
+    border-bottom: ${({ selected }) =>
+      selected
+        ? '2px solid var(--dashboard-perfil)'
+        : '3px solid var(--border-color)'};
+  }
 
   button {
     font-size: 14px;

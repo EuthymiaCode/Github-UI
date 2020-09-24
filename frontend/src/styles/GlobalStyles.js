@@ -32,13 +32,15 @@ export default createGlobalStyle`
         --repositorios-primary: #f1e05a; 
         --repositorios-secondary: #2b7489;
         --commits: #216e39;
-        --icon: #6a737d; 
+        --icon: ${({ theme }) => theme.icon}; 
+        --link-color: #0366D6;
         --font-color: ${({ theme }) => theme.font};
         --font-primary: ${({ theme }) => theme.fontPrimary};
         --bg :  ${({ theme }) => theme.bg};
-        --border-color: #e1e4e8;
+        --border-color: ${({ theme }) => theme.border} ;
+        --bg-secondary: ${({ theme }) => theme.bgSecondary};
 
-        --line-color:${({ theme }) => theme.line} ;
+       
         --profile-button-color: #FAFBFC;
         --btn-background: #fafbfc;
     }

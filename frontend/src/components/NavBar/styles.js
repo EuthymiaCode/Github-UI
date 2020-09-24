@@ -7,7 +7,7 @@ import { AiOutlineMenu } from 'react-icons/ai'
 import { MdBrightnessMedium } from 'react-icons/md'
 const OcticonSmiley = () => (
   <svg
-    class='octicon octicon-smiley'
+    className='octicon octicon-smiley'
     viewBox='0 0 16 16'
     version='1.1'
     width='16'
@@ -95,6 +95,13 @@ export const GitHubIcon = styled(GoMarkGithub)`
   width: auto;
   flex-shrink: 0;
   cursor: pointer;
+  transition: 0.2s;
+
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+  }
+
   @media (max-width: 768px) {
     margin-left: 0;
     height: 36px;
@@ -181,6 +188,7 @@ export const ArrowDown = styled(RiArrowDownSFill)`
   width: 15px;
   cursor: pointer;
   flex-shrink: 0;
+  background: transparent;
   @media (max-width: 768px) {
     display: none;
   }
@@ -256,7 +264,7 @@ export const IconPopover = styled.div`
   position: absolute;
   top: 45px;
   border-radius: 0.5em;
-  border: 1px solid #bbb;
+  border: 1px solid var(--border-color);
   right: ${({ right }) => right};
   background-color: var(--bg);
   color: var(--font-primary);
@@ -264,6 +272,7 @@ export const IconPopover = styled.div`
   font-size: 14px;
   display: ${({ open }) => (open ? 'block' : 'none')};
   padding: 4px 0;
+  z-index: 999;
   ul {
     padding: 4px 0px;
     list-style: none;

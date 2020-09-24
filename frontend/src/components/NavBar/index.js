@@ -54,8 +54,8 @@ export function NavBar({ mode, setMode }) {
           <button className='NavBarButton'>Explore</button>
           <ProfileLink>
             <img
-              src='https://avatars0.githubusercontent.com/u/4098258?s=460&u=0889dc958909489747cda7257f08b20ad4886678&v=4'
-              alt='Loba'
+              src='https://transamericagv.com.br/wp-content/uploads/2020/06/3352087-whindersson-nunes-reage-a-foto-de-influe-624x600-1.jpg'
+              alt='Cara sem graça'
               id='profile'></img>
             Usuário
           </ProfileLink>
@@ -83,7 +83,7 @@ export function NavBar({ mode, setMode }) {
 
         <ProfileIcon id='profile' onClick={e => handleIconOpen(e)}>
           <img
-            src='https://avatars0.githubusercontent.com/u/4098258?s=460&u=0889dc958909489747cda7257f08b20ad4886678&v=4'
+            src='https://transamericagv.com.br/wp-content/uploads/2020/06/3352087-whindersson-nunes-reage-a-foto-de-influe-624x600-1.jpg'
             alt='Loba'
             id='profile'></img>
           <ArrowDown id='profile' />

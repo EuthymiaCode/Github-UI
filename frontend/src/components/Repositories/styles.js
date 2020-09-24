@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { GoStar, GoCheck } from 'react-icons/go'
 import { CgClose } from 'react-icons/cg'
 import { RiBookMarkLine } from 'react-icons/ri'
@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-items: stretch;
   justify-content: flex-start;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
   color: var(--font-primary);
 `
 export const RepoCardContainer = styled.div`
@@ -17,6 +17,9 @@ export const RepoCardContainer = styled.div`
   flex-basis: 29%;
   padding: 20px 0;
   border-top: 1px solid var(--line-color);
+  color: #586069;
+  color: ${({ theme }) =>
+    theme.fontPrimary === '#24292e' ? '#586069' : '#e3e3e3'};
   a {
     font-size: 2rem;
     color: #0366d6;
@@ -36,17 +39,16 @@ export const RepoCardContainer = styled.div`
   h4 {
     align-self: flex-start;
     display: flex;
-    color: #586069;
+
     font-weight: 400;
     font-size: 1.2rem;
   }
   p {
-    color: #586069;
     font-size: 1.4rem;
   }
 
   button {
-    border: 1px solid #bbb;
+    border: 1px solid var(--border-color);
     padding: 6px 6px;
     display: flex;
     align-items: center;
@@ -54,8 +56,9 @@ export const RepoCardContainer = styled.div`
     border-radius: 0.5em;
     margin-right: 12px;
     padding: 3px 12px;
-    color: var(--navBar);
+    color: var(--font-primary);
     fill: var(--font-primary);
+    background-color: var(--bg-secondary);
     cursor: pointer;
     &:hover {
       filter: brightness(90%);
@@ -82,12 +85,13 @@ export const SearchBarContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   height: 65px;
+
   input {
     height: 32px;
-
+    background-color: var(--bg-secondary);
     padding: 5px 16px;
     flex: 0.8;
-    border: 1px solid #bbb;
+    border: 1px solid var(--border-color);
     border-radius: 0.5em;
     font-size: 1.4rem;
     cursor: auto;
@@ -100,12 +104,12 @@ export const SearchBarContainer = styled.div`
     }
 
     &::placeholder {
-      color: #333;
+      color: var(--font-primary);
     }
   }
 `
 export const Button = styled.button`
-  border: 1px solid #bbb;
+  border: 1px solid var(--border-color);
   padding: 6px 6px;
   display: flex;
   align-items: center;
@@ -113,14 +117,26 @@ export const Button = styled.button`
   border-radius: 0.5em;
   margin-right: 12px;
   padding: 5px 16px;
-  color: var(--navBar);
+  color: var(--font-primary);
   fill: var(--font-primary);
   height: 32px;
   cursor: pointer;
   position: relative;
-  background-color: ${({ open }) => (open ? '#ccc' : 'inherit')};
+  background-color: ${({ open, theme }) =>
+    open ? '#ccc3' : theme.bgSecondary};
   &:hover {
-    background-color: #ccc;
+    background-color: #ccc3;
+  }
+`
+
+export const expandMenu = keyframes`
+  from{
+    opacity: 0;
+    transform: translateY(-16px);
+  }to{
+    opacity: 1;
+    transform: translateY(0);
+
   }
 `
 
@@ -129,9 +145,9 @@ export const DropdownMenu = styled.ul`
   cursor: default;
   border-radius: 0.6em;
   display: ${({ open }) => (open ? 'block' : 'none')};
-  height: ${({ open }) => (open ? 'auto' : '0')};
+  height: auto;
 
-  transition: height 2s linear;
+  animation: ${expandMenu} 0.2s ease;
   border: 1px solid #bbb;
   position: absolute;
 
@@ -165,9 +181,9 @@ export const DropdownMenu = styled.ul`
 `
 
 export const CheckMark = styled(GoCheck)`
-  opacity: ${({ visible }) => (visible ? '1' : '0')};
+  visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   margin-right: 10px;
-  fill: black;
+  fill: var(--font-primary);
   width: 16px;
   height: 16px;
 `
@@ -188,7 +204,9 @@ export const CloseIcon = styled(CgClose)`
   color: var(--icon);
   cursor: pointer;
   &:hover {
-    fill: black;
-    color: black;
+    fill: ${({ theme }) =>
+      theme.fontPrimary === '#fff' ? 'black' : '#0366d6'};
+    color: ${({ theme }) =>
+      theme.fontPrimary === '#24292e' ? 'black' : '#0366d6'};
   }
 `

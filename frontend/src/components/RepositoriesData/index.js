@@ -1,119 +1,50 @@
 import React from 'react'
+import getRepos from '../../Context/RepoContext'
+import CommitGrid from '../CommitGrid'
 import {
   Container,
-  TopSide,
-  RepoIcon,
-  Link,
-  BotSide,
+  Cards,
+  RepoWrapper,
+  LangColor,
   StarIcon,
-  ForkIcon
+  RepoIcon
 } from './styles'
 
+const colors = {
+  Javascript: '#f1e05a',
+  Typescript: '#2b7489'
+}
+
 export function RepositoriesData() {
+  const repos = getRepos()
+
   return (
     <Container>
-      <TopSide>
-        <header>
-          <RepoIcon />
-          <Link> Repositorio </Link>
-        </header>
-
-        <p>A vingança nunca é plena, mata a alma e a envena</p>
-      </TopSide>
-
-      <BotSide>
-        <ul>
-          <li>
-            <div>cor</div>
-            <span>Javascript</span>
-          </li>
-          <li>
-            <StarIcon />
-            <span>33</span>
-          </li>
-          <li>
-            <ForkIcon />
-            <span> 0 </span>
-          </li>
-        </ul>
-      </BotSide>
-
-      <TopSide>
-        <header>
-          <RepoIcon />
-          <Link> Repositorio </Link>
-        </header>
-
-        <p>A vingança nunca é plena, mata a alma e a envena</p>
-      </TopSide>
-
-      <BotSide>
-        <ul>
-          <li>
-            <div>cor</div>
-            <span>Javascript</span>
-          </li>
-          <li>
-            <StarIcon />
-            <span>33</span>
-          </li>
-          <li>
-            <ForkIcon />
-            <span> 0 </span>
-          </li>
-        </ul>
-      </BotSide>
-      <TopSide>
-        <header>
-          <RepoIcon />
-          <Link> Repositorio </Link>
-        </header>
-
-        <p>A vingança nunca é plena, mata a alma e a envena</p>
-      </TopSide>
-
-      <BotSide>
-        <ul>
-          <li>
-            <div>cor</div>
-            <span>Javascript</span>
-          </li>
-          <li>
-            <StarIcon />
-            <span>33</span>
-          </li>
-          <li>
-            <ForkIcon />
-            <span> 0 </span>
-          </li>
-        </ul>
-      </BotSide>
-
-      <TopSide>
-        <header>
-          <RepoIcon />
-          <Link> Repositorio </Link>
-        </header>
-
-        <p>A vingança nunca é plena, mata a alma e a envena</p>
-      </TopSide>
-
-      <BotSide>
-        <ul>
-          <li>
-            <div>cor</div>
-            <span>Javascript</span>
-          </li>
-          <li>
-            <StarIcon />
-            <span>33</span>
-          </li>
-          <li>
-            <ForkIcon />
-            <span> 0 </span>
-          </li>
-        </ul>
-      </BotSide>
+      <div>
+        <h2>Pinned</h2>
+        <h3>Customize your pins</h3>
+      </div>
+      <Cards>
+        {repos
+          .slice(0, 6)
+          .map(({ name, description, language, stars }, index) => (
+            <RepoWrapper key={index}>
+              <a href={() => false}>
+                <RepoIcon />
+                {name}
+              </a>
+              <p>{description}</p>
+              <span>
+                <LangColor color={colors[language]} /> {language}
+                <span>
+                  <StarIcon />
+                  {stars}
+                </span>
+              </span>
+            </RepoWrapper>
+          ))}
+      </Cards>
+      <CommitGrid />
     </Container>
   )
 }
