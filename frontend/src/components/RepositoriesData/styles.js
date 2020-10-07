@@ -145,6 +145,7 @@ export const RepoWrapper = styled.div`
         fill: var(--link-color);
         fill: var(--link-color);
         fill: var(--link-color);
+        fill: var(--link-color);
       }
     }
   }
